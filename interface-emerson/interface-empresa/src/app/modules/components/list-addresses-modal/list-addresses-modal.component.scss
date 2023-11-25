@@ -1,0 +1,24 @@
+.enderecos-tabela {
+  background-color: #f8f9fa;
+  color: #007bff;
+  padding: 20px;
+  margin: 0 auto;
+ }
+
+ .enderecos-tabela table {
+  width: 100%;
+  border-collapse: collapse;
+ }
+
+ .enderecos-tabela th,
+ .enderecos-tabela td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  white-space: nowrap;
+ }
+
+ .enderecos-tabela th {
+  background-color: #007bff;
+  color: #fff;
+ }
