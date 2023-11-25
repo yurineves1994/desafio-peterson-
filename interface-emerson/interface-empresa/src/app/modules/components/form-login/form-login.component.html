@@ -1,0 +1,28 @@
+<div class="login-container" [formGroup]="form" (ngSubmit)="Logar()">
+  <h2>Login</h2>
+  <form>
+    <label for="username">username:</label>
+    <input type="text" formControlName="username" />
+    <span
+      class="errors"
+      *ngIf="
+        form.get('username')?.invalid && form.get('username')?.touched
+      "
+    >
+      Digite o seu e-mail!
+    </span>
+
+    <label for="password">Password:</label>
+    <input type="password" formControlName="password"/>
+    <span
+      class="errors"
+      *ngIf="
+        form.get('password')?.invalid && form.get('password')?.touched
+      "
+    >
+      Digite o sua senha!
+    </span>
+
+    <button type="submit">Logar</button>
+  </form>
+</div>
