@@ -48,7 +48,6 @@ public class EmpresaService {
     }
 
     public List<Empresa> cadastrarEmpresa(Empresa empresa) {
-        System.out.println(empresa);
         if (!validarCnpj(empresa.getCnpj())) {
             throw new DataIntegratyViolationException("CNPJ inválido");
         }

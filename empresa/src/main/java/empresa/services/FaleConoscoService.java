@@ -23,7 +23,7 @@ public class FaleConoscoService {
                 .orElseThrow(() -> new DataIntegratyViolationException("Empresa não foi Localizada!"));
 
         String emailEmpresa = empresa.getEmail();
-        String emailPessoa = empresa.getEmail();
+        String emailPessoa = pergunta.getEmail();
         String assunto = pergunta.getAssunto();
         String mensagem = pergunta.getMensagem();
         String nomePessoa = pergunta.getNomePessoa();

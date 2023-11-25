@@ -22,7 +22,8 @@ public class EmailService {
     }
 
     public void enviarApiMensageria(String emailEmpresa, String emailPessoa, String assunto, String mensagem, String nomePessoa) {
-
+        System.out.println(emailEmpresa);
+        System.out.println(emailPessoa);
         EmailDTO email = new EmailDTO(emailEmpresa, emailPessoa, assunto, mensagem, nomePessoa);
 
         HttpHeaders headers = new HttpHeaders();
