@@ -1,0 +1,57 @@
+<form class="form-cadastro" [formGroup]="form" (ngSubmit)="submitForm()">
+  <label>
+    Razão Social
+    <input type="text" formControlName="razaoSocial" />
+    <span
+      class="errors"
+      *ngIf="
+        form.get('razaoSocial')?.invalid && form.get('razaoSocial')?.touched
+      "
+    >
+      Razão Social é obrigatório.
+    </span>
+  </label>
+  <label>
+    Nome Fantasia
+    <input type="email" formControlName="nomeFantasia" />
+    <span
+      class="errors"
+      *ngIf="
+        form.get('nomeFantasia')?.invalid && form.get('nomeFantasia')?.touched
+      "
+    >
+      Nome Fantasia é obrigatório.
+    </span>
+  </label>
+  <label>
+    E-mail
+    <input type="email" formControlName="email" />
+    <span
+      class="errors"
+      *ngIf="
+        form.get('email')?.dirty &&
+        form.get('email')?.touched &&
+        form.get('email')?.invalid
+      "
+    >
+      E-mail é obrigatório.
+    </span>
+    <span
+      class="errors"
+      *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+    >
+      E-mail deve ser valido!
+    </span>
+  </label>
+  <label>
+    CNPJ
+    <input type="text" formControlName="cnpj" mask="00.000.000/0000-00"/>
+    <span
+      class="errors"
+      *ngIf="form.get('cnpj')?.invalid && form.get('cnpj')?.touched"
+    >
+      E-mail é obrigatório.
+    </span>
+  </label>
+  <button [disabled]="form.invalid">Enviar</button>
+</form>
