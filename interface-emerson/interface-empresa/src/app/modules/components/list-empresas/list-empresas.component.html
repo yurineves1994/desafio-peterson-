@@ -1,0 +1,42 @@
+<div class="table-responsive">
+  <table *ngIf="listEmpresa">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>RAZÃO SOCIAL</th>
+        <th>NOME FANTASIA</th>
+        <th>EMAIL</th>
+        <th>CNPJ</th>
+        <th>CADASTRAR ENDEREÇO</th>
+        <th>VISUALIZAR ENDEREÇOS</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empresa of listEmpresa">
+        <td>{{ empresa.id }}</td>
+        <td>{{ empresa.razaoSocial }}</td>
+        <td>{{ empresa.nomeFantasia }}</td>
+        <td>{{ empresa.email }}</td>
+        <td>{{ empresa.cnpj }}</td>
+        <td><button (click)="openAddAddressModal(empresa.id)">Novo Endereço </button></td>
+        <td><button (click)="openListAddressesModal(empresa.id)">Visualizar Endereços</button></td>
+      </tr>
+    </tbody>
+  </table>
+ </div>
+
+ <div class="modal" *ngIf="isAddAddressModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeAddAddressModal()">&times;</span>
+    <h2>Adicionar novo endereço</h2>
+    <app-add-address-modal [empresaId]="empresaId"></app-add-address-modal>
+  </div>
+ </div>
+
+ <div class="modal" *ngIf="isListAddressesModalOpen">
+  <div class="modal-content">
+    <span class="close" (click)="closeListAddressesModal()">&times;</span>
+    <h2>Endereços</h2>
+    <app-list-addresses-modal [empresas]="empresas" [empresaId]="empresaId"></app-list-addresses-modal>
+  </div>
+ </div>
