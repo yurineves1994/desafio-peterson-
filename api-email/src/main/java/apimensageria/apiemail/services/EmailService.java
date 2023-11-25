@@ -1,6 +1,8 @@
 package apimensageria.apiemail.services;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
@@ -32,11 +34,17 @@ public class EmailService {
     try {
       SimpleMailMessage message = new SimpleMailMessage();
       message.setFrom(emailEnterprise);
-      message.setTo(emailEntity.getEmailPessoa(), emailEntity.getEmailEmpresa());
-      message.setSubject(emailEntity.getAssunto());
-      message.setText(emailEntity.getMensagem());
 
-      emailSender.send(message);
+      List<String> toList = new ArrayList<>();
+      toList.add(emailEntity.getEmailPessoa());
+      toList.add(emailEntity.getEmailEmpresa());
+
+      for (String recipient : toList) {
+        message.setTo(recipient);
+        message.setSubject(emailEntity.getAssunto());
+        message.setText(emailEntity.getMensagem());
+        emailSender.send(message);
+      }
 
       emailEntity.setStatusSend(StatusSend.SENT);
     } catch (MailException e) {

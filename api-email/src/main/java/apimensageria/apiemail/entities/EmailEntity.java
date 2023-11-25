@@ -1,6 +1,7 @@
 package apimensageria.apiemail.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import apimensageria.apiemail.entities.enums.StatusSend;
 import jakarta.persistence.Column;
@@ -29,10 +30,9 @@ public class EmailEntity {
   @Column(columnDefinition = "TEXT")
   private String mensagem;
 
-   private String nomePessoa;
+  private String nomePessoa;
 
   private LocalDateTime sendDateEmail;
 
   private StatusSend statusSend;
-
 }

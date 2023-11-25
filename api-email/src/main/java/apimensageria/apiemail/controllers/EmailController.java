@@ -23,12 +23,10 @@ public class EmailController {
 
   @PostMapping
   public ResponseEntity<EmailEntity> sendEmail(@RequestBody @Valid EmailDTO emailDTO) {
-    System.out.println(emailDTO);
     EmailEntity emailEntity = new EmailEntity();
     BeanUtils.copyProperties(emailDTO, emailEntity);
     emailService.sendEmail(emailEntity);
 
     return ResponseEntity.status(HttpStatus.CREATED).body(emailEntity);
   }
-
 }
