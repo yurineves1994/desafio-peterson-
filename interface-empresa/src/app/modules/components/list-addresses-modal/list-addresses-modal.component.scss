@@ -3,22 +3,49 @@
   color: #007bff;
   padding: 20px;
   margin: 0 auto;
- }
+}
 
- .enderecos-tabela table {
+.enderecos-tabela table {
   width: 100%;
   border-collapse: collapse;
- }
+}
 
- .enderecos-tabela th,
- .enderecos-tabela td {
+.enderecos-tabela th,
+.enderecos-tabela td {
   border: 1px solid #ddd;
   padding: 10px;
   text-align: center;
   white-space: nowrap;
- }
+}
 
- .enderecos-tabela th {
+.enderecos-tabela th {
   background-color: #007bff;
   color: #fff;
- }
+}
+
+.content-button {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 100%;
+  margin: 10px 0;
+
+  .btn-excel {
+    width: max-content;
+    padding: 10px 25px;
+    color: white;
+    border: 1px solid white;
+    background-color: #007bff;
+    border-radius: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin: 0 20px;
+    cursor: pointer;
+
+    &:hover {
+      color: #007bff;
+      border: 1px solid #007bff;
+      background-color: white;
+    }
+  }
+}

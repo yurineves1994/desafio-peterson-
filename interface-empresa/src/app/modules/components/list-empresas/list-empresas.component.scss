@@ -2,7 +2,7 @@
   width: 100%;
   max-height: 500px;
   overflow: auto;
-  border-radius: 15px;
+  border-radius: 5px;
 
   &::-webkit-scrollbar {
     width: 10px;
@@ -26,7 +26,7 @@ table {
   border-collapse: collapse;
   background-color: #f8f9fa;
   margin: 0 auto;
-  border-radius: 15px;
+  border-radius: 5px;
 
   th,
   td {
@@ -47,7 +47,8 @@ table {
   button {
     background-color: #007bff;
     color: #fff;
-    border: none;
+    border: 1px solid transparent;
+    border-radius: 5px;
     padding: 5px 10px;
     text-align: center;
     text-decoration: none;
@@ -55,5 +56,36 @@ table {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+
+    &:hover {
+      color: #007bff;
+      border: 1px solid #007bff;
+      background-color: white;
+    }
+  }
+}
+
+.content-button {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 100%;
+  margin: 10px 0;
+
+  .btn-excel {
+    width: max-content;
+    padding: 10px 25px;
+    color: #007bff;
+    border: #007bff;
+    border-radius: 5px;
+    font-size: 14px;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+      color: white;
+      border: white;
+      background-color: #007bff;
+    }
   }
 }
