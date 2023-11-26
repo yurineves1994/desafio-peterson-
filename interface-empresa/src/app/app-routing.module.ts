@@ -4,15 +4,18 @@ import { HomeComponent } from './modules/pages/home/home.component';
 import { AddEmpresaComponent } from './modules/pages/add-empresa/add-empresa.component';
 import { LoginComponent } from './modules/pages/login/login.component';
 import { ContatoComponent } from './modules/pages/contato/contato.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'cadastro',
     component: AddEmpresaComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
@@ -21,8 +24,8 @@ const routes: Routes = [
   {
     path: 'contato',
     component: ContatoComponent,
+    canActivate: [AuthGuard],
   },
-
 ];
 
 @NgModule({

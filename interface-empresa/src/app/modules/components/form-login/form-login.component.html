@@ -2,27 +2,15 @@
   <h2>Login</h2>
   <form>
     <label for="username">username:</label>
-    <input type="text" formControlName="username" />
-    <span
-      class="errors"
-      *ngIf="
-        form.get('username')?.invalid && form.get('username')?.touched
-      "
-    >
-      Digite o seu e-mail!
-    </span>
-
+    <input type="text" formControlName="login" />
     <label for="password">Password:</label>
     <input type="password" formControlName="password"/>
-    <span
-      class="errors"
-      *ngIf="
-        form.get('password')?.invalid && form.get('password')?.touched
-      "
-    >
-      Digite o sua senha!
-    </span>
-
-    <button type="submit">Logar</button>
+    <div class="errors">
+      <span class="error" *ngIf="form.get('login')?.dirty && form.get('login')?.touched && form.get('login')?.invalid">O campo "E-mail" é obrigatório!</span>
+      <span class="error" *ngIf="form.get('login')?.invalid && form.get('login')?.touched">O campo "E-mail" deve ser valido!</span>
+      <span class="error" *ngIf="form.get('password')?.invalid && form.get('password')?.touched">O campo "Password" é um campo obrigatorio!</span>
+      <span class="error" *ngIf="errorMessage">{{ errorMessage }}</span>
+    </div>
+    <button [disabled]="form.invalid">Logar</button>
   </form>
 </div>

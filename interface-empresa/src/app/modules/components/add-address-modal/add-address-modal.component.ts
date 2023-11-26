@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IEndereco } from 'src/app/interfaces/IEmpresa';
 import { EmpresaService } from 'src/app/services/empresa.service';
 
@@ -14,7 +15,8 @@ export class AddAddressModalComponent implements OnInit {
 
   constructor(
     private empresaService: EmpresaService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -31,7 +33,10 @@ export class AddAddressModalComponent implements OnInit {
 
   public addEndereco(endereco: IEndereco, id: number) {
     this.empresaService.addEndereco(endereco, id).subscribe({
-      next: (res) => res,
+      next: (res) => {
+        res;
+        this.router.navigate(['/login']);
+      },
       error: (err) => this.errorMessage = err.error.error,
     });
   }

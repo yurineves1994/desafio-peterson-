@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { EmpresaService } from 'src/app/services/empresa.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-form-login',
@@ -8,23 +9,34 @@ import { EmpresaService } from 'src/app/services/empresa.service';
   styleUrls: ['./form-login.component.scss'],
 })
 export class FormLoginComponent implements OnInit {
+  errorMessage: string = '';
   form: FormGroup = this.formBuilder.group({
-    username: ['', Validators.required, Validators.email],
-    password: ['', Validators.required],
+    login: [''],
+    password: [''],
   });
 
   constructor(
-    private empresaService: EmpresaService,
-    private formBuilder: FormBuilder
+    private loginService: AuthService,
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['/']);
+    }
+  }
 
   public Logar() {
+    console.log('acionou');
     if (this.form.valid) {
-      console.log('Form Submitted');
-      console.log(this.form.value);
-      //addEmpresa(this.form.value)
+      this.loginService.login(this.form.value).subscribe({
+        next: (res: any) => {
+          localStorage.setItem('token', res.token);
+          this.router.navigate(['/']);
+        },
+        error: (err) => (this.errorMessage = err.error.error),
+      });
     }
   }
 }

@@ -8,12 +8,14 @@ import { FormAddEmpresaComponent } from './components/form-add-empresa/form-add-
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { FormLoginComponent } from './components/form-login/form-login.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { ContatoComponent } from './pages/contato/contato.component';
 import { FormContatoComponent } from './components/form-contato/form-contato.component';
 import { AddAddressModalComponent } from './components/add-address-modal/add-address-modal.component';
 import { ListAddressesModalComponent } from './components/list-addresses-modal/list-addresses-modal.component';
+import { AuthService } from '../services/auth.service';
+import { AuthInterceptor } from '../interceptor/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -29,8 +31,18 @@ import { ListAddressesModalComponent } from './components/list-addresses-modal/l
     AddAddressModalComponent,
     ListAddressesModalComponent,
   ],
-  providers: [provideNgxMask()],
-  imports: [CommonModule, ReactiveFormsModule, HttpClientModule, NgxMaskDirective,
-    NgxMaskPipe],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    provideNgxMask(),
+    AuthService,
+    AuthInterceptor,
+  ],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    NgxMaskDirective,
+    NgxMaskPipe,
+  ],
 })
 export class ModulesModule {}
