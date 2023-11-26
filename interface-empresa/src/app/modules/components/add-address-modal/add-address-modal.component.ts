@@ -9,6 +9,7 @@ import { EmpresaService } from 'src/app/services/empresa.service';
   styleUrls: ['./add-address-modal.component.scss'],
 })
 export class AddAddressModalComponent implements OnInit {
+  errorMessage: string = '';
   @Input() empresaId: number = 0;
 
   constructor(
@@ -31,7 +32,7 @@ export class AddAddressModalComponent implements OnInit {
   public addEndereco(endereco: IEndereco, id: number) {
     this.empresaService.addEndereco(endereco, id).subscribe({
       next: (res) => res,
-      error: (err) => console.log(err),
+      error: (err) => this.errorMessage = err.error.error,
     });
   }
 

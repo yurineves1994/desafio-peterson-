@@ -10,6 +10,7 @@ import { EmpresaService } from 'src/app/services/empresa.service';
 })
 
 export class FormAddEmpresaComponent implements OnInit {
+  errorMessage: string = '';
   form: FormGroup = this.formBuilder.group({
     razaoSocial: ['', Validators.required],
     nomeFantasia: ['', Validators.required],
@@ -27,7 +28,7 @@ export class FormAddEmpresaComponent implements OnInit {
   public addEmpresa(empresa: IEmpresa) {
     this.empresaService.addEmpresa(empresa).subscribe({
       next: (res) => res,
-      error: (err) => console.log(err),
+      error: (err) => this.errorMessage = err.error.error,
     });
   }
 

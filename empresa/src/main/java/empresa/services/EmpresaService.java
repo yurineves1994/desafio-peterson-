@@ -49,15 +49,15 @@ public class EmpresaService {
 
     public List<Empresa> cadastrarEmpresa(Empresa empresa) {
         if (!validarCnpj(empresa.getCnpj())) {
-            throw new DataIntegratyViolationException("CNPJ inválido");
+            throw new DataIntegratyViolationException("Esse CNPJ é inválido, tente outro!");
         }
 
         if (empresaRepository.existsByCnpj(empresa.getCnpj())) {
-            throw new DataIntegratyViolationException("Esse CNPJ já está cadastrado!");
+            throw new DataIntegratyViolationException("Esse CNPJ já está cadastrado, tente outro!");
         }
 
         if (empresaRepository.existsByEmail(empresa.getEmail())) {
-            throw new DataIntegratyViolationException("Esse E-mail já está cadastrado!");
+            throw new DataIntegratyViolationException("Esse E-mail já está cadastrado, tente outro!");
         }
 
         empresaRepository.save(empresa);

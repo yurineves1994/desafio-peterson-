@@ -9,52 +9,26 @@
   <label>
     Nome
     <input type="text" formControlName="nomePessoa" />
-    <span
-      class="errors"
-      *ngIf="form.get('nomePessoa')?.invalid && form.get('nomePessoa')?.touched"
-    >
-      Nome é obrigatório.
-    </span>
   </label>
   <label>
     E-mail
     <input type="email" formControlName="email" />
-    <span
-      class="errors"
-      *ngIf="
-        form.get('email')?.dirty &&
-        form.get('email')?.touched &&
-        form.get('email')?.invalid
-      "
-    >
-      E-mail é obrigatório.
-    </span>
-    <span
-      class="errors"
-      *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
-    >
-      E-mail deve ser valido!
-    </span>
   </label>
   <label>
     Assunto
     <input type="text" formControlName="assunto" />
-    <span
-      class="errors"
-      *ngIf="form.get('assunto')?.invalid && form.get('assunto')?.touched"
-    >
-      Assunto deve ser valido!
-    </span>
   </label>
   <label>
     Mensagem
     <textarea rows="5" formControlName="mensagem"> </textarea>
-    <span
-      class="errors"
-      *ngIf="form.get('mensagem')?.invalid && form.get('mensagem')?.touched"
-    >
-      Digite a sua Mensagem.
-    </span>
   </label>
+  <div class="errors">
+    <span class="error" *ngIf="form.get('nomePessoa')?.invalid && form.get('nomePessoa')?.touched">O campo "Nome" é obrigatório!</span>
+    <span class="error" *ngIf="form.get('email')?.dirty && form.get('email')?.touched && form.get('email')?.invalid">O campo "E-mail" é obrigatório!</span>
+    <span class="error" *ngIf="form.get('email')?.invalid && form.get('email')?.touched">O campo "E-mail" deve ser valido!</span>
+    <span class="error" *ngIf="form.get('assunto')?.invalid && form.get('assunto')?.touched">O campo "Assunto" deve ser valido!</span>
+    <span class="error" *ngIf="form.get('mensagem')?.invalid && form.get('mensagem')?.touched">Digite a sua Mensagem!</span>
+    <span class="error" *ngIf="errorMessage">{{ errorMessage }}</span>
+  </div>
   <button [disabled]="form.invalid">Enviar</button>
 </form>

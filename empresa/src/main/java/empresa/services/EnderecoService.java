@@ -56,15 +56,15 @@ public class EnderecoService {
     public Endereco cadastrarEndereco(Long idEmpresa, Endereco endereco) {
 
         if (!validarCep(endereco.getCep())) {
-            throw new DataIntegratyViolationException("CEP inválido");
+            throw new DataIntegratyViolationException("Esse CEP é inválido, tente outro!");
         }
 
         if (enderecoRepository.existsByCep(endereco.getCep())) {
-            throw new DataIntegratyViolationException("Esse CEP já está cadastrado!");
+            throw new DataIntegratyViolationException("Esse CEP já está cadastrado, tente outro!");
         }
 
         Empresa empresa = empresaRepository.findById(idEmpresa)
-                .orElseThrow(() -> new DataIntegratyViolationException("Empresa não foi Localizada!"));
+                .orElseThrow(() -> new DataIntegratyViolationException("Empresa não foi localizada, tente outra!"));
 
         endereco.setEmpresa(empresa);
 

@@ -10,6 +10,7 @@ import { EmpresaService } from 'src/app/services/empresa.service';
   styleUrls: ['./form-contato.component.scss'],
 })
 export class FormContatoComponent implements OnInit {
+  errorMessage: string = '';
   public listEmpresa: IEmpresa[] = [];
 
   form: FormGroup = this.formBuilder.group({
@@ -31,14 +32,14 @@ export class FormContatoComponent implements OnInit {
         this.listEmpresa = res;
         this.form.addControl('IdEmpresa', this.formBuilder.control(''));
       },
-      error: (err) => console.log(err),
+      error: (err) => this.errorMessage = err.error.error,
     });
   }
 
   public enviarPergunta(empresa: IFaleConosco, id: number) {
     this.empresaService.enviarPergunta(empresa, id).subscribe({
       next: (res) => res,
-      error: (err) => console.log(err),
+      error: (err) => this.errorMessage = err.error.error,
     });
   }
 

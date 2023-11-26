@@ -20,7 +20,7 @@ public class FaleConoscoService {
 
     public FaleConosco cadastrarFaleConosco(Long idEmpresa, FaleConosco pergunta) {
         Empresa empresa = empresaRepository.findById(idEmpresa)
-                .orElseThrow(() -> new DataIntegratyViolationException("Empresa não foi Localizada!"));
+                .orElseThrow(() -> new DataIntegratyViolationException("Empresa não foi localizada, tente outra!"));
 
         String emailEmpresa = empresa.getEmail();
         String emailPessoa = pergunta.getEmail();

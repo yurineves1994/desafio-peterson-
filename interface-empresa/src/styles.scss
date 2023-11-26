@@ -58,6 +58,20 @@ h2 {
   margin-bottom: 1em;
 }
 
+.errors {
+  display: flex;
+  align-items: flex-start;
+  gap: 3px;
+  flex-direction: column;
+  margin: 10px 0;
+
+  .error {
+    color: red;
+    font-weight: 300;
+    font-size: 14px;
+  }
+}
+
 .modal {
   position: fixed;
   left: 0;

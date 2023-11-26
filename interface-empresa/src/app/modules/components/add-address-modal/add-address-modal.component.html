@@ -2,73 +2,40 @@
   <label>
     Logradouro
     <input type="text" formControlName="logradouro" />
-    <span
-      class="errors"
-      *ngIf="form.get('logradouro')?.invalid && form.get('logradouro')?.touched"
-    >
-      Logadouro é obrigatório.
-    </span>
   </label>
   <label>
     Bairro
     <input type="text" formControlName="bairro" />
-    <span
-      class="errors"
-      *ngIf="form.get('bairro')?.invalid && form.get('bairro')?.touched"
-    >
-      Bairro é obrigatório.
-    </span>
   </label>
   <label>
     Cidade
     <input type="text" formControlName="cidade" />
-    <span
-      class="errors"
-      *ngIf="form.get('cidade')?.invalid && form.get('cidade')?.touched"
-    >
-      Cidade é obrigatório.
-    </span>
   </label>
   <label>
     Estado
     <input type="text" formControlName="estado" />
-    <span
-      class="errors"
-      *ngIf="form.get('estado')?.invalid && form.get('estado')?.touched"
-    >
-      Estado é obrigatório.
-    </span>
   </label>
   <label>
     Latitude
     <input type="text" formControlName="latitude" mask="00.000000"/>
-    <span
-      class="errors"
-      *ngIf="form.get('latitude')?.invalid && form.get('latitude')?.touched"
-    >
-      Latitude é obrigatório.
-    </span>
   </label>
   <label>
     Longitude
     <input type="text" formControlName="longitude" mask="00.000000"/>
-    <span
-      class="errors"
-      *ngIf="form.get('longitude')?.invalid && form.get('longitude')?.touched"
-    >
-      Longitude é obrigatório.
-    </span>
   </label>
-
   <label>
     CEP
     <input type="text" formControlName="cep" mask="00000-000"/>
-    <span
-      class="errors"
-      *ngIf="form.get('cep')?.invalid && form.get('cep')?.touched"
-    >
-      CEP é obrigatório.
-    </span>
   </label>
+  <div class="errors">
+    <span class="error" *ngIf="form.get('logradouro')?.invalid && form.get('logradouro')?.touched">O campo "Logadouro" é obrigatório!</span>
+    <span class="error" *ngIf="form.get('bairro')?.invalid && form.get('bairro')?.touched">O campo "Bairro" é obrigatório!</span>
+    <span class="error" *ngIf="form.get('cidade')?.invalid && form.get('cidade')?.touched">O campo "Cidade" é obrigatório!</span>
+    <span class="error" *ngIf="form.get('estado')?.invalid && form.get('estado')?.touched">O campo "Estado" é obrigatório!</span>
+    <span class="error" *ngIf="form.get('latitude')?.invalid && form.get('latitude')?.touched">O campo "Latitude" é obrigatório!</span>
+    <span class="error" *ngIf="form.get('longitude')?.invalid && form.get('longitude')?.touched">O campo "Longitude" é obrigatório!</span>
+    <span class="error" *ngIf="form.get('cep')?.invalid && form.get('cep')?.touched">O campo CEP é obrigatório!</span>
+    <span class="error" *ngIf="errorMessage">{{ errorMessage }}</span>
+  </div>
   <button [disabled]="form.invalid">Enviar</button>
 </form>
