@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import empresa.entities.FaleConosco;
 import empresa.services.FaleConoscoService;
+import jakarta.validation.Valid;
 
 @RestController
 @CrossOrigin("*")
@@ -21,7 +22,7 @@ public class FaleConoscoController {
     private FaleConoscoService faleConoscoService;
 
     @PostMapping("/{idEmpresa}")
-    public ResponseEntity<FaleConosco> cadastrarPergunta(@PathVariable Long idEmpresa, @RequestBody FaleConosco pergunta) {
+    public ResponseEntity<FaleConosco> cadastrarPergunta(@PathVariable Long idEmpresa, @RequestBody  @Valid FaleConosco pergunta) {
         FaleConosco novaPergunta = faleConoscoService.cadastrarFaleConosco(idEmpresa, pergunta);
 
         return ResponseEntity.ok().body(novaPergunta);

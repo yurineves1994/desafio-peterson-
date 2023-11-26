@@ -11,6 +11,8 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Entity(name = "tb_contato")
@@ -30,10 +32,13 @@ public class FaleConosco {
     @Column(name = "nome_pessoa")
     private String nomePessoa;
 
+    @NotBlank(message = "E-mail é obrigatório")
+    @Email(message = "E-mail inválido")
     private String email;
 
+    @NotBlank(message = "Assunto é obrigatória")
     private String assunto;
 
+    @NotBlank(message = "Mensagem é obrigatória")
     private String mensagem;
 }
-
