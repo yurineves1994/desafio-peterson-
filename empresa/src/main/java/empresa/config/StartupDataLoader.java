@@ -19,7 +19,6 @@ public class StartupDataLoader {
   @EventListener
   public void onApplicationEvent(ApplicationReadyEvent event) {
     String encryptedPassword = new BCryptPasswordEncoder().encode("12345");
-
     User newUser = new User("admin@admin.com", encryptedPassword, UserRole.ADMIN);
 
     this.userRepository.save(newUser);

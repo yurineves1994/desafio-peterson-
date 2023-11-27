@@ -1,0 +1,33 @@
+version: '3'
+services:
+ sistema-mensageria:
+   build: ./api-email
+   container_name: sistema-mensageria
+   ports:
+     - '9090:9090'
+   environment:
+     - SPRING_MAIL_HOST=smtp.gmail.com
+     - SPRING_MAIL_PORT=587
+     - SPRING_MAIL_USERNAME=projetosemjava@gmail.com
+     - SPRING_MAIL_PASSWORD=hmcu fvma aaeb enzw
+     - SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH=true
+     - SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE=true
+   networks:
+     - mynetwork
+ aplicacao-principal:
+   build: ./empresa
+   container_name: aplicacao-principal
+   ports:
+     - '8080:8080'
+   networks:
+     - mynetwork
+#  angular-app:
+#    build: ./interface-empresa
+#    container_name: angular-app
+#    ports:
+#      - '8082:80'
+#    networks:
+#      - mynetwork
+networks:
+ mynetwork:
+   driver: bridge
