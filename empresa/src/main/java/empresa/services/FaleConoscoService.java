@@ -1,5 +1,7 @@
 package empresa.services;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import empresa.entities.Empresa;
@@ -12,6 +14,8 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @Service
 public class FaleConoscoService {
+
+    private static final Logger logger = LogManager.getLogger(FaleConoscoService.class);
 
     private FaleConoscoRepository faleConoscoRepository;
     private EmpresaRepository empresaRepository;
@@ -30,7 +34,7 @@ public class FaleConoscoService {
         emailService.enviarApiMensageria(emailEmpresa, emailPessoa, assunto, mensagem, nomePessoa);
 
         pergunta.setEmpresa(empresa);
-
+        logger.info("PERGUNTA CADASTRADA E INFORMAÇÕES ENVIADAS PARA API DE MENSAGERIA!");
         return faleConoscoRepository.save(pergunta);
     }
 }

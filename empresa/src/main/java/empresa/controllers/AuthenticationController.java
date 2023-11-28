@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import empresa.config.TokenService;
 import empresa.dtos.AuthenticationDTO;
 import empresa.dtos.LoginResponseDTO;
@@ -23,6 +26,7 @@ import empresa.repositories.UserRepository;
 @CrossOrigin("*")
 @RequestMapping("auth")
 public class AuthenticationController {
+  private static final Logger logger = LogManager.getLogger(AuthenticationController.class);
 
   @Autowired
   private AuthenticationManager authenticationManager;
@@ -40,7 +44,7 @@ public class AuthenticationController {
 
   @PostMapping("/login")
   public ResponseEntity login(@RequestBody AuthenticationDTO data) {
-    System.out.println(data);
+    logger.info("USUARIO FOI LOGADO");
     var usernamepassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
     var auth = authenticationManager.authenticate(usernamepassword);
 
@@ -51,7 +55,7 @@ public class AuthenticationController {
 
   @PostMapping("/register")
   public ResponseEntity register(@RequestBody RegisterDTO data) {
-    System.out.println(data);
+    logger.info("USUARIO ADMIN CRIADO COM SUCESSO!");
     if (this.userRepository.findByLogin(data.login()) != null)
       return ResponseEntity.badRequest().build();
 

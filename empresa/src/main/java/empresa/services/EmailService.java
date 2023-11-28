@@ -1,5 +1,7 @@
 package empresa.services;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -11,6 +13,7 @@ import empresa.dtos.EmailDTO;
 
 @Service
 public class EmailService {
+    private static final Logger logger = LogManager.getLogger(EmailService.class);
 
     @Value("${mensageria.url}")
     private String apiUrlMensageria;
@@ -21,7 +24,8 @@ public class EmailService {
         this.restTemplate = restTemplate;
     }
 
-    public void enviarApiMensageria(String emailEmpresa, String emailPessoa, String assunto, String mensagem, String nomePessoa) {
+    public void enviarApiMensageria(String emailEmpresa, String emailPessoa, String assunto, String mensagem,
+            String nomePessoa) {
         System.out.println(emailEmpresa);
         System.out.println(emailPessoa);
         EmailDTO email = new EmailDTO(emailEmpresa, emailPessoa, assunto, mensagem, nomePessoa);
@@ -33,5 +37,6 @@ public class EmailService {
 
         restTemplate.postForEntity(apiUrlMensageria, requestEntity, Void.class);
 
+        logger.info("DADOS DA PERGUNTA ENVIADOS PARA API DE MENSAGERIA");
     }
 }
