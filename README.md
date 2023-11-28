@@ -43,3 +43,34 @@ O backend conta com autenticação utilizando JWT e Spring Security, Spring JPA,
     ng serve
 
 para visualização a documentação da API http://localhost:8080/swagger-ui/index.html#/
+
+## ROTAS DO SISTEMA
+
+### ROTAS AUTENTICADAS NÃO AUTENTICADAS
+
+- CADASTRO DE NOVO USUARIO (POST)
+http://localhost:8080/auth/register
+
+- LOGIN (POST)
+http://localhost:8080/auth/login
+
+- LISTAR TODOS USUARIOS (GET)
+http://localhost:8080/auth/register
+
+
+### ROTAS AUTENTICADAS AUTENTICADAS
+
+- LISTAR ENDEREÇOS (GET)
+http://localhost:8080/api/enderecos
+
+- LISTAR EMPRESAS (GET)
+http://localhost:8080/api/empresas
+
+- ENVIO CADASTRO DE PERGUNTA (POST)
+http://localhost:8080/api/faleconosco/$ID
+
+- CADASTRO DE EMPRESA (POST)
+http://localhost:8080/api/empresas
+
+- CADASTRO DE ENDEREÇO POR ID (POST)
+http://localhost:8080/api/enderecos/$ID
