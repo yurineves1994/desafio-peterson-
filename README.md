@@ -6,8 +6,6 @@ Trata-se de um sistema de cadastro de empresa, onde é possivel inserir endereç
 
 O backend conta com autenticação utilizando JWT e Spring Security, Spring JPA, controle Logs utilizando Log4j2 e Docker, já o frontend foi construido com Angular 15, utilizando controle de rotas e permissões.
 
-para visualização a documentação da API http://localhost:8080/swagger-ui/index.html#/
-
 ## Como executar o backend do projeto
 
 1. **Clone o repositório:**
@@ -33,8 +31,15 @@ para visualização a documentação da API http://localhost:8080/swagger-ui/ind
 
     ```bash
     cd interface-empresa
+
+2. **Instale as Dependencias**
+
+    ```bash
+    npm i
     
-2. **Execute o Angular**
+3. **Execute o Angular**
 
     ```bash
     ng serve
+
+para visualização a documentação da API http://localhost:8080/swagger-ui/index.html#/
