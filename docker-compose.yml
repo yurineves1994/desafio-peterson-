@@ -24,13 +24,13 @@ services:
      - SPRING_RABBITMQ_ADDRESSES=amqps://yarywlxe:ba0HBDJbmfeqE-JbPp4BaKQYVHmch1Ee@prawn.rmq.cloudamqp.com/yarywlxe
    networks:
      - mynetwork
-#  angular-app:
-#    build: ./interface-empresa
-#    container_name: angular-app
-#    ports:
-#      - '8082:80'
-#    networks:
-#      - mynetwork
+ angular-app:
+   build: ./interface-empresa
+   container_name: angular-app
+   ports:
+     - '8082:80'
+   networks:
+     - mynetwork
 networks:
  mynetwork:
    driver: bridge

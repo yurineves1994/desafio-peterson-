@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IEmpresa } from 'src/app/interfaces/IEmpresa';
 import { IFaleConosco } from 'src/app/interfaces/IFaleConosco';
 import { EmpresaService } from 'src/app/services/empresa.service';
@@ -23,7 +24,8 @@ export class FormContatoComponent implements OnInit {
 
   constructor(
     private empresaService: EmpresaService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -38,7 +40,10 @@ export class FormContatoComponent implements OnInit {
 
   public enviarPergunta(empresa: IFaleConosco, id: number) {
     this.empresaService.enviarPergunta(empresa, id).subscribe({
-      next: (res) => res,
+      next: (res) => {
+        res;
+        this.router.navigate(['/']);
+      },
       error: (err) => this.errorMessage = err.error.error,
     });
   }
