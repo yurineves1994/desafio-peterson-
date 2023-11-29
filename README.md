@@ -2,7 +2,7 @@
 
 ## Descrição do Projeto
 
-Trata-se de um sistema de cadastro de empresa, onde é possivel inserir endereço para cada empresa. Além disso, foi construido um microserviço de envio de e-mails utilizando o SMTP do gmail.
+Trata-se de um sistema de cadastro de empresa, onde é possivel inserir endereço para cada empresa. Além disso, foi construido um microserviço de envio de e-mails utilizando o SMTP do gmail utilizando RabbitMQ.
 
 O backend conta com autenticação utilizando JWT e Spring Security, Spring JPA, controle Logs utilizando Log4j2 e Docker, já o frontend foi construido com Angular 15, utilizando controle de rotas e permissões.
 
@@ -46,7 +46,7 @@ para visualização a documentação da API http://localhost:8080/swagger-ui/ind
 
 ## ROTAS DO SISTEMA
 
-### ROTAS AUTENTICADAS NÃO AUTENTICADAS
+### ROTAS NÃO AUTENTICADAS
 
 - CADASTRO DE NOVO USUARIO (POST)
 http://localhost:8080/auth/register
@@ -58,7 +58,7 @@ http://localhost:8080/auth/login
 http://localhost:8080/auth/register
 
 
-### ROTAS AUTENTICADAS AUTENTICADAS
+### ROTAS AUTENTICADAS AUTENTICADAS (LOGIN: admin@admin.com / SENHA: 12345)
 
 - LISTAR ENDEREÇOS (GET)
 http://localhost:8080/api/enderecos

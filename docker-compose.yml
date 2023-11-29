@@ -12,6 +12,7 @@ services:
      - SPRING_MAIL_PASSWORD=hmcu fvma aaeb enzw
      - SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH=true
      - SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE=true
+     - SPRING_RABBITMQ_ADDRESSES=amqps://yarywlxe:ba0HBDJbmfeqE-JbPp4BaKQYVHmch1Ee@prawn.rmq.cloudamqp.com/yarywlxe
    networks:
      - mynetwork
  aplicacao-principal:
@@ -19,6 +20,8 @@ services:
    container_name: aplicacao-principal
    ports:
      - '8080:8080'
+   environment:
+     - SPRING_RABBITMQ_ADDRESSES=amqps://yarywlxe:ba0HBDJbmfeqE-JbPp4BaKQYVHmch1Ee@prawn.rmq.cloudamqp.com/yarywlxe
    networks:
      - mynetwork
 #  angular-app:

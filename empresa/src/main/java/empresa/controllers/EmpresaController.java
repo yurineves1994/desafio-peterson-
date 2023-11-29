@@ -23,6 +23,7 @@ import jakarta.validation.Valid;
 public class EmpresaController {
     private static final Logger logger = LogManager.getLogger(EmpresaController.class);
 
+
     @Autowired
     private EmpresaService empresaService;
 

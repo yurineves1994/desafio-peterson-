@@ -21,6 +21,8 @@ import jakarta.validation.Valid;
 public class FaleConoscoController {
     private static final Logger logger = LogManager.getLogger(FaleConoscoController.class);
 
+
+
     @Autowired
     private FaleConoscoService faleConoscoService;
 
@@ -29,6 +31,8 @@ public class FaleConoscoController {
             @RequestBody @Valid FaleConosco pergunta) {
         logger.info("ENDEREÇO CADASTRADAS COM SUCESSO");
         FaleConosco novaPergunta = faleConoscoService.cadastrarFaleConosco(idEmpresa, pergunta);
+
+
 
         return ResponseEntity.ok().body(novaPergunta);
     }

@@ -12,7 +12,6 @@ import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
-import apimensageria.apiemail.controllers.EmailController;
 import apimensageria.apiemail.entities.EmailEntity;
 import apimensageria.apiemail.entities.enums.StatusSend;
 import apimensageria.apiemail.repositories.EmailRepository;

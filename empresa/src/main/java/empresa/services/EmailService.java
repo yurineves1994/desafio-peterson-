@@ -2,6 +2,8 @@ package empresa.services;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -15,27 +17,24 @@ import empresa.dtos.EmailDTO;
 public class EmailService {
     private static final Logger logger = LogManager.getLogger(EmailService.class);
 
+    @Value("${spring.rabbitmq.queue}")
+    private String queue;
+
     @Value("${mensageria.url}")
     private String apiUrlMensageria;
 
-    private final RestTemplate restTemplate;
+    @Autowired
+    RabbitTemplate rabbitTemplate;
 
-    public EmailService(RestTemplate restTemplate) {
-        this.restTemplate = restTemplate;
+    public EmailService(RabbitTemplate rabbitTemplate) {
+        this.rabbitTemplate = rabbitTemplate;
     }
 
     public void enviarApiMensageria(String emailEmpresa, String emailPessoa, String assunto, String mensagem,
             String nomePessoa) {
-        System.out.println(emailEmpresa);
-        System.out.println(emailPessoa);
         EmailDTO email = new EmailDTO(emailEmpresa, emailPessoa, assunto, mensagem, nomePessoa);
 
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-        HttpEntity<EmailDTO> requestEntity = new HttpEntity<>(email, headers);
-
-        restTemplate.postForEntity(apiUrlMensageria, requestEntity, Void.class);
+        rabbitTemplate.convertAndSend(queue, email);
 
         logger.info("DADOS DA PERGUNTA ENVIADOS PARA API DE MENSAGERIA");
     }
