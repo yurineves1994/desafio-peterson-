@@ -24,24 +24,7 @@ O backend conta com autenticação utilizando JWT e Spring Security, Spring JPA,
 
 - CASO NÃO TENHA DOCKER/DOCKER-COMPOSE SERÁ NECESSARIO INSTALAR
 - CREDENCIAIS PRA ACESSAR FRONT-END (LOGIN: admin@admin.com / SENHA: 12345)
-
-
-## Como executar o front do projeto
-
-1. **Com o projeto já clonado, acesse a pasta interface-empresa**
-
-    ```bash
-    cd interface-empresa
-
-2. **Instale as Dependencias**
-
-    ```bash
-    npm i
-    
-3. **Execute o Angular**
-
-    ```bash
-    ng serve
+- PARA VISUALIZAR O PROJETO ACESSE http://localhost:8082
 
 para visualização a documentação da API http://localhost:8080/swagger-ui/index.html#/
 
