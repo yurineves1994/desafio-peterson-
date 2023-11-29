@@ -39,7 +39,7 @@ http://localhost:8080/auth/register
 http://localhost:8080/auth/login
 
 - LISTAR TODOS USUARIOS (GET)
-http://localhost:8080/auth/register
+http://localhost:8080/auth
 
 
 ### ROTAS AUTENTICADAS AUTENTICADAS (LOGIN: admin@admin.com / SENHA: 12345)
