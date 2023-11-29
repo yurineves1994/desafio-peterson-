@@ -23,6 +23,7 @@ O backend conta com autenticação utilizando JWT e Spring Security, Spring JPA,
     docker-compose up
 
 - CASO NÃO TENHA DOCKER/DOCKER-COMPOSE SERÁ NECESSARIO INSTALAR
+- CREDENCIAIS PRA ACESSAR FRONT-END (LOGIN: admin@admin.com / SENHA: 12345)
 
 
 ## Como executar o front do projeto
