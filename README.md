@@ -4,7 +4,7 @@
 
 Trata-se de um sistema de cadastro de empresa, onde é possivel inserir endereço para cada empresa. Além disso, foi construido um microserviço de envio de e-mails utilizando o SMTP do gmail utilizando RabbitMQ.
 
-O backend conta com autenticação utilizando JWT e Spring Security, Spring JPA, controle Logs utilizando Log4j2 e Docker, já o frontend foi construido com Angular 15, utilizando controle de rotas e permissões.
+O backend conta com autenticação utilizando JWT e Spring Security, Spring JPA, controle Logs utilizando Log4j2 e Docker, já o frontend foi construido com Angular 15, utilizando controle de rotas e permissões, acesse a interface do projeto em http://localhost:8082
 
 ## Como executar o backend do projeto
 
@@ -24,7 +24,7 @@ O backend conta com autenticação utilizando JWT e Spring Security, Spring JPA,
 
 - CASO NÃO TENHA DOCKER/DOCKER-COMPOSE SERÁ NECESSARIO INSTALAR
 - CREDENCIAIS PRA ACESSAR FRONT-END (LOGIN: admin@admin.com / SENHA: 12345)
-- PARA VISUALIZAR O PROJETO ACESSE http://localhost:8082
+- PARA VISUALIZAR A INTERFACE DO PROJETO ACESSE http://localhost:8082
 
 para visualização a documentação da API http://localhost:8080/swagger-ui/index.html#/
 
