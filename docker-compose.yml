@@ -8,11 +8,11 @@ services:
    environment:
      - SPRING_MAIL_HOST=smtp.gmail.com
      - SPRING_MAIL_PORT=587
-     - SPRING_MAIL_USERNAME=projetosemjava@gmail.com
-     - SPRING_MAIL_PASSWORD=hmcu fvma aaeb enzw
+     - SPRING_MAIL_USERNAME=***************
+     - SPRING_MAIL_PASSWORD=***************
      - SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH=true
      - SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE=true
-     - SPRING_RABBITMQ_ADDRESSES=amqps://yarywlxe:ba0HBDJbmfeqE-JbPp4BaKQYVHmch1Ee@prawn.rmq.cloudamqp.com/yarywlxe
+     - SPRING_RABBITMQ_ADDRESSES=*****************
    networks:
      - mynetwork
  aplicacao-principal:
